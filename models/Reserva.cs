@@ -20,7 +20,6 @@ namespace SistemaHotel_Dio.models
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
-            // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
             bool VerificarCapacidade = Suite.Capacidade >= hospedes.Count;
 
             if (VerificarCapacidade)
@@ -49,10 +48,9 @@ namespace SistemaHotel_Dio.models
         {
             decimal valor = DiasReservados * Suite.ValorDiaria;
 
-            // Regra: Caso os dias reservados forem maior ou igual a 10, conceder um desconto de 10%
-            if (true)
+            if (DiasReservados >= 10)
             {
-                valor = 0;
+                valor =- (valor * 0.10M);
             }
 
             return valor;
